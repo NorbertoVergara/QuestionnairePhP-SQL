@@ -2,128 +2,126 @@
 session_start();
 
 $preguntas = [
+    
+    [
+    'pregunta' => '1. ¿Qué lenguaje se utiliza para crear el contenido y la estructura de un sitio web?',
+    'opciones' => ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    'respuesta_correcta' => 0
+],
 
+[
+    'pregunta' => '2. ¿Qué etiqueta se utiliza para crear un enlace en HTML?',
+    'opciones' => ['<link>', '<href>', '<a>', '<url>'],
+    'respuesta_correcta' => 2
+],
+
+[
+    'pregunta' => '3. ¿Qué lenguaje se utiliza para programar el comportamiento de un sitio web?',
+    'opciones' => ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    'respuesta_correcta' => 2
+],
+
+[
+    'pregunta' => '4. ¿Cuál de las siguientes opciones es un selector de CSS válido?',
+    'opciones' => ['!p', '.p', '#p', '&p'],
+    'respuesta_correcta' => 2
+],
+
+[
+    'pregunta' => '5. ¿Qué propiedad de CSS se utiliza para cambiar el color de fondo de un elemento?',
+    'opciones' => ['background-color', 'color', 'font-size', 'text-align'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '6. ¿Qué función se utiliza en JavaScript para imprimir algo en la consola del navegador?',
+    'opciones' => ['alert()', 'console.log()', 'prompt()', 'document.write()'],
+    'respuesta_correcta' => 1
+],
+
+[
+    'pregunta' => '7. ¿Qué significa HTML?',
+    'opciones' => ['Hypertext Markup Language', 'Hyperlink and Text Markup Language', 'Hyperlink Markup Language', 'Hypertext Markup Logic'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '8. ¿Qué propiedad de CSS se utiliza para cambiar el tamaño de un elemento?',
+    'opciones' => ['font-size', 'width', 'height', 'padding'],
+    'respuesta_correcta' => 1
+],
+
+[
+    'pregunta' => '9. ¿Qué evento de JavaScript se dispara cuando el usuario hace clic en un elemento?',
+    'opciones' => ['onhover', 'onchange', 'onload', 'onclick'],
+    'respuesta_correcta' => 3
+],
+
+[
+    'pregunta' => '10. ¿Cuál de las siguientes opciones NO es un operador de comparación en JavaScript?',
+    'opciones' => ['===', '!==', '<>', '>='],
+    'respuesta_correcta' => 2
+],
+
+[
+    'pregunta' => '11. ¿Qué propiedad de CSS se utiliza para cambiar la fuente de un elemento?',
+    'opciones' => ['font-family', 'font-style', 'font-size', 'text-align'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '12. ¿Qué evento de JavaScript se dispara cuando el usuario coloca el cursor sobre un elemento?',
+    'opciones' => ['onmouseover', 'onchange', 'onload', 'onclick'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '13. ¿Cuál de los siguientes elementos NO es un elemento de bloque en HTML?',
+    'opciones' => ['<div>', '<p>', '<span>', '<h1>'],
+    'respuesta_correcta' => 2
+],
     [
-        'pregunta' => '1. ¿Cuál es la última versión estable de HTML?',
-        'opciones' => ['HTML4', 'HTML5', 'HTML6', 'HTML7'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '2. ¿Qué etiqueta se utiliza para crear un enlace en HTML?',
-        'opciones' => ['<link>', '<href>', '<a>', '<url>'],
-        'respuesta_correcta' => 3
-    ],
-    
-    [
-        'pregunta' => '3. ¿Cuál es el estándar para los estilos en la web?',
-        'opciones' => ['CSS', 'HTML', 'JS', 'PHP'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '4. ¿Cuál es el lenguaje de programación más utilizado en la web?',
-        'opciones' => ['Python', 'Java', 'Ruby', 'JavaScript'],
-        'respuesta_correcta' => 4
-    ],
-    
-    [
-        'pregunta' => '5. ¿Qué etiqueta se utiliza para definir un párrafo en HTML?',
-        'opciones' => ['<paragraph>', '<p>', '<text>', '<para>'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '6. ¿Cuál es la forma correcta de enlazar un archivo CSS en HTML?',
-        'opciones' => ['<link rel="stylesheet" type="text/css" href="styles.css">', '<css href="styles.css">', '<style href="styles.css">', '<link href="styles.css">'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '7. ¿Qué propiedad de CSS se utiliza para definir el tamaño de letra?',
-        'opciones' => ['font-size', 'text-size', 'font-style', 'text-style'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '8. ¿Cuál es la función principal de JavaScript en la web?',
-        'opciones' => ['Definir la estructura del contenido', 'Dar estilo al contenido', 'Hacer que la página sea interactiva', 'Comunicarse con el servidor'],
-        'respuesta_correcta' => 3
-    ],
-    
-    [
-        'pregunta' => '9. ¿Qué etiqueta se utiliza para insertar una imagen en HTML?',
-        'opciones' => ['<image>', '<img>', '<picture>', '<src>'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '10. ¿Qué propiedad de CSS se utiliza para definir el color de fondo?',
-        'opciones' => ['background-color', 'color', 'background-image', 'style'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '11. ¿Qué es un "framework" en programación front-end?',
-        'opciones' => ['Un lenguaje de programación', 'Una biblioteca de códigos predefinidos', 'Un editor de texto', 'Un sistema de almacenamiento de datos'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '12. ¿Qué es un "DOM" en programación front-end?',
-        'opciones' => ['Document Object Model', 'Database Object Model', 'Development Operation Mode', 'Digital Object Memory'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '13. ¿Qué es el responsive design?',
-        'opciones' => ['Un método para escribir código HTML', 'Una técnica para mejorar el rendimiento de la página', 'Un enfoque para diseñar sitios web que se adapten a diferentes tamaños de pantalla', 'Una herramienta de desarrollo web'],
-        'respuesta_correcta' => 3
-    ],
-    
-    [
-        'pregunta' => '14. ¿Cuál es la función principal de Bootstrap?',
-        'opciones' => ['Definir la estructura del contenido', 'Dar estilo al contenido', 'Hacer que la página sea interactiva', 'Comunicarse con el servidor'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '15. ¿Qué es el "box model" en CSS?',
-        'opciones' => ['Un modelo matemático utilizado para el diseño de la página', 'Un modelo de caja que define la forma en que se representan los elementos HTML', 'Un modelo de programación orientado a objetos', 'Un modelo de red'],
-        'respuesta_correcta' => 2
-    ],
-    
-    [
-        'pregunta' => '16. ¿Qué es un "preprocesador" de CSS?',
-        'opciones' => ['Una herramienta de edición de texto', 'Un lenguaje de programación para la web', 'Un software para el desarrollo web', 'Un sistema para procesar código CSS antes de que se cargue en el navegador'],
-        'respuesta_correcta' => 4
-    ],
-    
-    [
-        'pregunta' => '17. ¿Qué propiedad de CSS se utiliza para definir la posición de un elemento en la página?',
-        'opciones' => ['position', 'layout', 'place', 'arrange'],
-        'respuesta_correcta' => 1
-    ],
-    
-    [
-        'pregunta' => '18. ¿Qué es un "plugin" en programación front-end?',
-        'opciones' => ['Un programa para optimizar el rendimiento del navegador', 'Un complemento que se añade a un editor de texto', 'Un módulo que se utiliza para extender la funcionalidad de un sitio web', 'Un lenguaje de programación para la web'],
-        'respuesta_correcta' => 3
-    ],
-    
-    [
-        'pregunta' => '19. ¿Cuál es la función principal de jQuery?',
-        'opciones' => ['Definir la estructura del contenido', 'Dar estilo al contenido', 'Hacer que la página sea interactiva', 'Comunicarse con el servidor'],
-        'respuesta_correcta' => 3
-    ],
-    
-    [
-        'pregunta' => '20. ¿Qué es un "sprite" en programación front-end?',
-        'opciones' => ['Una imagen que contiene varias imágenes más pequeñas', 'Una animación creada con CSS', 'Un formato de imagen para la web', 'Un lenguaje de programación para la web'],
-        'respuesta_correcta' => 1
-    ],
-    
-       
+    'pregunta' => '14. ¿Qué propiedad de CSS se utiliza para cambiar la posición de un elemento?',
+    'opciones' => ['position', 'float', 'top', 'right'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '15. ¿Qué método se utiliza en JavaScript para agregar un elemento al final de un arreglo?',
+    'opciones' => ['push()', 'concat()', 'splice()', 'shift()'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '16. ¿Qué propiedad de CSS se utiliza para cambiar el borde de un elemento?',
+    'opciones' => ['border-style', 'border-width', 'border-color', 'Todas las anteriores'],
+    'respuesta_correcta' => 3
+],
+
+[
+    'pregunta' => '17. ¿Cuál de las siguientes opciones NO es un valor válido para el atributo "type" de un elemento <input>?',
+    'opciones' => ['text', 'password', 'email', 'link'],
+    'respuesta_correcta' => 3
+],
+
+[
+    'pregunta' => '18. ¿Qué método se utiliza en JavaScript para eliminar el último elemento de un arreglo?',
+    'opciones' => ['push()', 'pop()', 'shift()', 'unshift()'],
+    'respuesta_correcta' => 1
+],
+
+[
+    'pregunta' => '19. ¿Qué propiedad de CSS se utiliza para cambiar el espaciado entre las líneas de un elemento?',
+    'opciones' => ['line-height', 'letter-spacing', 'word-spacing', 'Todas las anteriores'],
+    'respuesta_correcta' => 0
+],
+
+[
+    'pregunta' => '20. ¿Cuál es la versión más reciente de HTML?',
+    'opciones' => ['HTML4', 'HTML5', 'HTML6', 'No hay una versión más reciente'],
+    'respuesta_correcta' => 1
+],
+
     
 ];
 
