@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $stmt->get_result();
         if ($result && $result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            if (password_verify($password, $row["contraseña"])) {
+            if (password_verify($password, $row["password"])) {
                 session_start();
                 $_SESSION["usuario"] = $row["nombre"];
                 $_SESSION["correo"] = $email;
