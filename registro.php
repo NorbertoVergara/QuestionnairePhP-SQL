@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <title>Registro de usuarios</title>
+  <link rel="stylesheet" type="text/css" href="registro.css">
 </head>
 <body>
   <h1>Registro de usuarios</h1>

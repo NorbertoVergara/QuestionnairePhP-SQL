@@ -163,6 +163,7 @@ $pregunta = $preguntas[$pregunta_actual];
 <html>
 <head>
     <title>Cuestionario con PHP</title>
+    <link rel="stylesheet" type="text/css" href="cuestionario.css">
 </head>
 <body>
     <h1>Cuestionario con PHP</h1>
