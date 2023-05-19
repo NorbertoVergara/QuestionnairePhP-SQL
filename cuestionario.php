@@ -123,26 +123,48 @@ $num_preguntas = count($preguntas);
 if (!isset($_SESSION['contador'])) {
     $_SESSION['contador'] = 0;
     $_SESSION['puntaje'] = 0;
-    $_SESSION['respuestas'] = array();
+    if (!isset($_SESSION['respuestas'])) {
+        $_SESSION['respuestas'] = array();
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $respuesta = $_POST['respuesta'];
+    if (isset($_POST['anterior'])) {
+        // Botón "Anterior" presionado
+        $_SESSION['contador']--;
+    } elseif (isset($_POST['siguiente'])) {
+        // Botón "Siguiente" presionado
+        $respuesta = $_POST['respuesta'];
 
-    if ($respuesta == $preguntas[$_SESSION['contador']]['respuesta_correcta']) {
-        $_SESSION['puntaje']++;
-    }
+        if ($respuesta == $preguntas[$_SESSION['contador']]['respuesta_correcta']) {
+            $_SESSION['puntaje']++;
+        }
 
-    $_SESSION['respuestas'][] = $respuesta;
+        $_SESSION['respuestas'][$_SESSION['contador']] = $respuesta;
 
-    $_SESSION['contador']++;
+        $_SESSION['contador']++;
+    } elseif (isset($_POST['finalizar'])) {
+        // Botón "Finalizar" presionado
+        $respuesta = $_POST['respuesta'];
 
-    if ($_SESSION['contador'] == $num_preguntas) {
+        if ($respuesta == $preguntas[$_SESSION['contador']]['respuesta_correcta']) {
+            $_SESSION['puntaje']++;
+        }
+
+        $_SESSION['respuestas'][$_SESSION['contador']] = $respuesta;
+
         // Todas las preguntas han sido respondidas
         header('Location: cuestionario.php?resultado=true');
         exit();
     }
+
+    if ($_SESSION['contador'] < 0) {
+        $_SESSION['contador'] = 0;
+    } elseif ($_SESSION['contador'] >= $num_preguntas) {
+        $_SESSION['contador'] = $num_preguntas - 1;
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -184,23 +206,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     <?php else : ?>
+
         <h1>Cuestionario de desarrollo web</h1>
 
-        <form method="POST" action="cuestionario.php">
-            <div class="pregunta">
-                <?php echo $preguntas[$_SESSION['contador']]['pregunta']; ?>
-            </div>
+        <form action="cuestionario.php" method="POST">
+            <p>Pregunta <?php echo $_SESSION['contador'] + 1; ?> de <?php echo $num_preguntas; ?>:</p>
+            <p><?php echo $preguntas[$_SESSION['contador']]['pregunta']; ?></p>
 
             <div class="opciones">
                 <?php foreach ($preguntas[$_SESSION['contador']]['opciones'] as $index => $opcion) : ?>
                     <label>
-                        <input type="radio" name="respuesta" value="<?php echo $index; ?>" required>
+                        <input type="radio" name="respuesta" value="<?php echo $index; ?>" required
+                            <?php if (isset($_SESSION['respuestas'][$_SESSION['contador']]) && $_SESSION['respuestas'][$_SESSION['contador']] == $index) : ?>
+                                checked
+                            <?php endif; ?>
+                        >
                         <?php echo $opcion; ?>
                     </label>
                 <?php endforeach; ?>
             </div>
 
-            <input type="submit" value="Siguiente" class="submit-btn">
+            <div class="botones">
+                <?php if ($_SESSION['contador'] > 0) : ?>
+                    <button type="submit" name="anterior" value="true" class="submit-btn">Anterior</button>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['contador'] < $num_preguntas - 1) : ?>
+                    <button type="submit" name="siguiente" value="true" class="submit-btn">Siguiente</button>
+                <?php else : ?>
+                    <button type="submit" name="finalizar" value="true" class="submit-btn">Finalizar</button>
+                <?php endif; ?>
+            </div>
         </form>
 
     <?php endif; ?>
